@@ -1,4 +1,4 @@
-const express = require("express")
+import express from "express" // typescript lets us use import vs require
 
 const app = express() // doesn't do anything yet, but makes the api
 // const port = 5000;
@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
   res.json({"message": "hello"})
 })
 
-module.exports = app
+export default app
 
 // OTHER EXAMPLES
 // app.get("/", (req, res) => {
