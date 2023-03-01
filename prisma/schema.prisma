@@ -2,6 +2,14 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 // ORM/SDK: make it easy manage the db. basically makes every row an object, so it takes an OOP approach
 // migration: "teach the db" what the data looks like. 
+
+// MAKE SURE: npm i @prisma/client --save
+// this is the sdk used in the code to interact with db
+// have added DATABASE_URL to .env
+
+// migrate with a name so that migrations can be identified/pushed to git/reused
+// npx prisma migrate dev --name <init>
+
 generator client {
   provider = "prisma-client-js"
 }
