@@ -1,6 +1,8 @@
 import express from "express" // typescript lets us use import vs require
 import router from "./router"
 import morgan from "morgan"
+import { protect } from "./modules/auth"
+import { createNewUser, signin } from "./handlers/user"
 
 const app = express() // doesn't do anything yet, but makes the api
 // const port = 5000;
@@ -38,7 +40,11 @@ app.get("/", (req, res) => {
 // so for everything that has api in it, we will use the router
 // so /api is mounted before any routes in router
 // so it would be: .../api/product/ 
-app.use("/api", router)
+// protect is the middleware and will 
+app.use("/api", protect, router)
+// don't want protect because if it's a new user and we require that they be signed in well...
+app.post("/user", createNewUser)
+app.post("/signin", signin)
 
 export default app
 
